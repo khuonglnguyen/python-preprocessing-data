@@ -1,7 +1,7 @@
 from functions import *
 
 # Lấy dữ liệu từ vnexpress
-doc = lay_du_lieu('https://vnexpress.net/du-bao-gia-xang-dau-moi-nhat-gia-xang-co-the-giam-manh-ve-duoi-30-000-dong-4485667.html')
+doc = lay_du_lieu('https://vnexpress.net/du-bao-gia-xang-dau-moi-nhat-gia-xang-co-the-giam-manh-ve-duoi-30-000-dong-4485667.html').html
 
 # Xóa các thẻ html
 re.sub(r'<[^>]*>', '', doc)

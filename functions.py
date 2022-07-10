@@ -6,7 +6,7 @@ def lay_du_lieu(url):
     article = Article(url)
     article.download()
     article.parse()
-    return article.text
+    return article
 
 def remove_html(txt):
     return re.sub(r'<[^>]*>', '', txt)
