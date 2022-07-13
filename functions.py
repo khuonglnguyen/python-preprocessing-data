@@ -182,3 +182,13 @@ def vn_sentence_to_telex_type(sentence):
     for index, word in enumerate(words):
         words[index] = vn_word_to_telex_type(word)
     return ' '.join(words)
+
+
+stopword = ["bị", "bởi", "cả", "các", "cái", "cần", "càng", "chỉ", "chiếc", "cho", "chứ", "chưa", "chuyện", "có", "có_thể", "cứ"]
+
+def remove_stopwords(line):
+    words = []
+    for word in line.strip().split():
+        if word not in stopword:
+            words.append(word)
+    return ' '.join(words)

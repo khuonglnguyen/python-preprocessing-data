@@ -1,13 +1,10 @@
 from functions import *
 
 # Lấy dữ liệu từ vnexpress
-doc = lay_du_lieu('https://vnexpress.net/du-bao-gia-xang-dau-moi-nhat-gia-xang-co-the-giam-manh-ve-duoi-30-000-dong-4485667.html').html
+doc = lay_du_lieu('https://vnexpress.net/du-bao-gia-xang-dau-moi-nhat-gia-xang-co-the-giam-manh-ve-duoi-30-000-dong-4485667.html').text
 
 # Xóa các thẻ html
 re.sub(r'<[^>]*>', '', doc)
-
-# Chuẩn hóa unicode 
-convert_unicode(doc);
 
 # Chuẩn hóa cách gõ dấu tiếng Việt
 doc = chuan_hoa_dau_cau_tieng_viet(doc)
@@ -23,6 +20,9 @@ doc = re.sub(r'[^\s\wáàảãạăắằẳẵặâấầẩẫậéèẻẽẹ
 
 # Xóa khoảng trắng thừa
 doc = re.sub(r'\s+', ' ', doc).strip()
+
+# Xóa các stopword
+doc = remove_stopwords(doc)
 
 # Hiển thị kết quả
 print(doc)
